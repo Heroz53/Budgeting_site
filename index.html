@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgeting Site</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Budgeting Site</h1>
+        <h2>Your one stop site for easy and efficient budgeting</h2>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">T-BILLS</a>
+                <div class="dropdown-content">
+                    <a href="#">Details about T-BILLS</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">T-BONDS</a>
+                <div class="dropdown-content">
+                    <a href="#">Details about T-BONDS</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">STOCKS</a>
+                <div class="dropdown-content">
+                    <a href="#">Details about STOCKS</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">MY BUSINESS</a>
+                <div class="dropdown-content">
+                    <a href="#">Details about MY BUSINESS</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">MMF</a>
+                <div class="dropdown-content">
+                    <a href="#">Details about MMF</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">SACCOS</a>
+                <div class="dropdown-content">
+                    <a href="#">Details about SACCOS</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">CHAMMA'S</a>
+                <div class="dropdown-content">
+                    <a href="#">Details about CHAMMA'S</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h3 class="proposed-budget">Proposed Budget</h3>
+        <form>
+            <label for="fromDate">Date: </label>
+            <input type="date" id="fromDate" name="fromDate">
+            <label for="toDate">to</label>
+            <input type="date" id="toDate" name="toDate">
+            <label for="month">Month: </label>
+            <input type="month" id="month" name="month">
+            <label for="year">Year: </label>
+            <input type="number" id="year" name="year" value="2022">
+            
+            <h3>Role</h3>
+            <input type="text" name="role" placeholder="Enter role">
+    
+            <h3 class="savings">Savings</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Family Size</th>
+                        <th>Source</th>
+                        <th>Amount (KES)</th>
+                        <th class="next-month-projection">Next Month Projection (KES)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="number" name="familySize"></td>
+                        <td><input type="text" name="savingsSource1" value="SACCO"></td>
+                        <td><input type="number" name="saccoAmount" value="10000"></td>
+                        <td class="next-month-projection"><input type="number" name="nextMonthProjectionSacco"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><input type="text" name="country" placeholder="Enter country"></td>
+                        <td><input type="text" name="savingsSource2" value="LAND-MSA"></td>
+                        <td><input type="number" name="landMsaAmount" value="10000"></td>
+                        <td class="next-month-projection"><input type="number" name="nextMonthProjectionLandMsa"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="savingsSource3" value="LAND-TEZO"></td>
+                        <td><input type="number" name="landTezoAmount" value="25000"></td>
+                        <td class="next-month-projection"><input type="number" name="nextMonthProjectionLandTezo"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><input type="text" name="city" placeholder="Enter city"></td>
+                        <td><input type="text" name="savingsSource4" value="Emergency Fund"></td>
+                        <td><input type="number" name="emergencyFund" value="5000"></td>
+                        <td class="next-month-projection"><input type="number" name="nextMonthProjectionEmergencyFund"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="income">Income</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Amount (KES)</th>
+                        <th class="next-month-projection">Next Month Projection (KES)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="incomeSource1" value="Salary"></td>
+                        <td><input type="number" name="salaryAmount" value="122000"></td>
+                        <td class="next-month-projection"><input type="number" name="salaryNextMonthProjection"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="incomeSource2" value="Crypto"></td>
+                        <td><input type="number" name="cryptoAmount" value="0"></td>
+                        <td class="next-month-projection"><input type="number" name="cryptoNextMonthProjection"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="incomeSource3" value="Stock Market"></td>
+                        <td><input type="number" name="stockMarketAmount" value="0"></td>
+                        <td class="next-month-projection"><input type="number" name="stockMarketNextMonthProjection"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="incomeSource4"></td>
+                        <td><input type="number" name="incomeSource4Amount"></td>
+                        <td class="next-month-projection"><input type="number" name="incomeSource4NextMonthProjection"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="incomeSource5"></td>
+                        <td><input type="number" name="incomeSource5Amount"></td>
+                        <td class="next-month-projection"><input type="number" name="incomeSource5NextMonthProjection"></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td class="total-editable">Total</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 class="investment">Investments</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Amount (KES)</th>
+                        <th class="next-month-projection">Next Month Projection (KES)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="investmentSource1" value="Stock Market"></td>
+                        <td><input type="number" name="investmentStockMarket"></td>
+                        <td class="next-month-projection"><input type="number" name="investmentStockMarketNextMonthProjection"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="investmentSource2" value="Crypto"></td>
+                        <td><input type="number" name="investmentCrypto"></td>
+                        <td class="next-month-projection"><input type="number" name="investmentCryptoNextMonthProjection"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="investmentSource3" value="Goats"></td>
+                        <td><input type="number" name="investmentGoats"></td>
+                        <td class="next-month-projection"><input type="number" name="investmentGoatsNextMonthProjection"></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td class="total-editable">Total</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Summary</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Usage/Source</th>
+                        <th>%</th>
+                        <th>Amount (KES)</th>
+                        <th class="next-month-projection">Next Month Projection (KES)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="5"><input type="month" name="summaryMonth"></td>
+                        <td><input type="text" name="summarySource1" value="Salary"></td>
+                        <td><input type="number" name="summarySalaryPercentage"></td>
+                        <td><input type="number" name="summarySalaryAmount"></td>
+                        <td class="next-month-projection"><input type="number" name="summarySalaryNextMonthProjection"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="summarySource2" value="Savings"></td>
+                        <td><input type="number" name="summarySavingsPercentage"></td>
+                        <td><input type="number" name="summarySavingsAmount"></td>
+                        <td class="next-month-projection"><input type="number" name="summarySavingsNextMonthProjection"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="summarySource3" value="Needs"></td>
+                        <td><input type="number" name="summaryNeedsPercentage"></td>
+                        <td><input type="number" name="summaryNeedsAmount"></td>
+                        <td class="next-month-projection"><input type="number" name="summaryNeedsNextMonthProjection"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="summarySource4" value="Wants"></td>
+                        <td><input type="number" name="summaryWantsPercentage"></td>
+                        <td><input type="number" name="summaryWantsAmount"></td>
+                        <td class="next-month-projection"><input type="number" name="summaryWantsNextMonthProjection"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="summarySource5" value="Emergency Fund"></td>
+                        <td><input type="number" name="summaryEmergencyFundPercentage"></td>
+                        <td><input type="number" name="summaryEmergencyFundAmount"></td>
+                        <td class="next-month-projection"><input type="number" name="summaryEmergencyFundNextMonthProjection"></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="2" class="total-editable">Total</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Notes</h3>
+            <textarea name="notes" rows="5" cols="50"></textarea>
+            
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Budgeting Site. All rights reserved.</p>
+    </footer>
+</body>
+</html>
